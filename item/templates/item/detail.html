@@ -24,6 +24,7 @@
 </div>
 <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
     <h2 class="mb-12 text-2xl text-center">Related Items</h2>
+    {% if related_items %}
     <div class="grid grid-cols-3 gap-3">
         {% for item in related_items %}
         <div>
@@ -39,6 +40,12 @@
         </div>
         {% endfor %}
     </div>
+    {% else %}
+    <div class="grid grid-cols-3 gap-3">
+        <h2 class="mb-6 text-xl text-left">Related Items Not Found</h2>
+    </div>
+
+    {% endif %}
 </div>
 
 {% endblock %}

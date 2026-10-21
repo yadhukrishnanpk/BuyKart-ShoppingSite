@@ -1,0 +1,78 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+
+<div style="display: flex; justify-content: center; align-items: center; min-height: 80vh; width: 100%;">
+
+    <style>
+        .register-btn:hover {
+            background-color: #218838 !important;
+        }
+    </style>
+
+    <div class="form-box" style="background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px; box-sizing: border-box;">
+
+        <h2 style="margin-top: 0; margin-bottom: 20px; color: #333333; text-align: center; font-size:2rem">SIGNUP</h2>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message {{ message.tags }}" style="padding: 10px; margin-bottom: 15px; border-radius: 4px; font-size: 14px; {% if message.tags == 'error' %}background-color: #f8d7da; color: #721c24;{% elif message.tags == 'success' %}background-color: #d4edda; color: #155724;{% else %}background-color: #e2e3e5; color: #383d41;{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                required
+                style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px;"
+            >
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px;"
+            >
+
+            <input
+                type="password"
+                name="password1"
+                placeholder="Password"
+                required
+                style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px;"
+            >
+
+            <input
+                type="password"
+                name="password2"
+                placeholder="Confirm Password"
+                required
+                style="width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px;"
+            >
+
+            <button type="submit" class="register-btn" style="width: 100%; padding: 12px; background-color: #28a745; color: white; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.2s ease;">
+                Signup
+            </button>
+
+        </form>
+
+        <p style="text-align: center; margin-top: 20px; font-size: 14px; color: #666666;">
+            Already have an account?
+            <a href="{% url 'login' %}" style="color: #007bff; text-decoration: none;">Login here</a>
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}
