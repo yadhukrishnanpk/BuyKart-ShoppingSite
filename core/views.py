@@ -7,17 +7,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.messages import get_messages
 
 def index(request):
-    items = Item.objects.filter(is_sold=False)[0:6]
+    items = Item.objects.filter(is_sold=False)
     Categories = Category.objects.all()
     context={
         'categories': Categories,
         'items' : items
     }
     return render(request, 'core/index.html', context)
-
-def contact(request):
-    return render(request, 'core/contact.html')
-
 
 def Signup(request):
     if request.user.is_authenticated:

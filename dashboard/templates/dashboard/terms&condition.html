@@ -1,0 +1,68 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Terms & Conditions {% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto px-4 py-6">
+    <!-- Header -->
+    <div class="mb-6 text-center">
+        <h1 class="text-2xl font-extrabold text-gray-900">Terms & Conditions</h1>
+        <p class="text-xs text-gray-500 mt-1">Last updated: Jan,01 2026</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-700">
+        
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between space-y-4">
+            <div>
+                <h2 class="text-md font-bold text-gray-900 mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-green-500 rounded-full"></span> 1. Account Terms
+                </h2>
+                <p class="text-xs text-gray-600 leading-relaxed mb-3">
+                    You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your BuyKart account.
+                </p>
+                <h2 class="text-md font-bold text-gray-900 mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-green-500 rounded-full"></span> 2. Product Listings
+                </h2>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                    Sellers must provide accurate descriptions, pricing in INR (₹), and accurate stock status (In Stock / Sold) for all listed items.
+                </p>
+            </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between space-y-4">
+            <div>
+                <h2 class="text-md font-bold text-gray-900 mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full"></span> 3. Prohibited Conduct
+                </h2>
+                <ul class="text-xs text-gray-600 space-y-1 list-disc pl-4 mb-3">
+                    <li>Listing illegal or counterfeit items.</li>
+                    <li>Misrepresenting product conditions or stock.</li>
+                    <li>Attempting unauthorized access to marketplace data.</li>
+                </ul>
+                <h2 class="text-md font-bold text-gray-900 mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full"></span> 4. Marketplace Role
+                </h2>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                    BuyKart acts as a platform connecting sellers and buyers. Direct transactions are subject to mutual seller-buyer agreement.
+                </p>
+            </div>
+        </div>
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between space-y-4">
+            <div>
+                <h2 class="text-md font-bold text-gray-900 mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-purple-500 rounded-full"></span> 5. Termination
+                </h2>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                    We reserve the right to suspend or remove any account or item listing that violates our marketplace policies or user guidelines.
+                </p>
+            </div>
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+                <h3 class="text-xs font-bold text-gray-900 mb-1">Need Clarification?</h3>
+                <p class="text-xs text-gray-500 mb-2">Have questions about our terms?</p>
+                <a href="{% url 'contact' %}" class="inline-block px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-semibold rounded-lg transition">Contact Legal Support</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

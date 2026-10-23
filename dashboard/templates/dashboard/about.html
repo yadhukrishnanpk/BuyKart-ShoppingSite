@@ -1,0 +1,60 @@
+{% extends 'core/base.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto px-4 py-6">
+    <!-- Header -->
+    <div class="mb-6 text-center">
+        <h1 class="text-2xl font-extrabold text-gray-900">About BuyKart</h1>
+        <p class="text-xs text-gray-500 mt-1">Your trusted destination for seamless item management and local commerce.</p>
+    </div>
+
+    <!-- Compact Three-Column Grid (Fits on one screen) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        
+        <!-- Column 1: Mission -->
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between space-y-3">
+            <div>
+                <div class="w-8 h-8 bg-green-100 text-green-700 rounded-lg flex items-center justify-center font-bold text-sm mb-3">
+                    🎯
+                </div>
+                <h2 class="text-md font-bold text-gray-900 mb-1">Our Mission</h2>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                    To build a lightning-fast dashboard platform simplifying how individuals list, organize, and manage products with transparency.
+                </p>
+            </div>
+        </div>
+
+        <!-- Column 2: Vision -->
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between space-y-3">
+            <div>
+                <div class="w-8 h-8 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center font-bold text-sm mb-3">
+                    🚀
+                </div>
+                <h2 class="text-md font-bold text-gray-900 mb-1">Our Vision</h2>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                    To become the premier e-commerce ecosystem for independent creators and daily shoppers looking for hassle-free inventory tracking.
+                </p>
+            </div>
+        </div>
+
+        <!-- Column 3: Quick Action & Highlights -->
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between space-y-3">
+            <div>
+                <h2 class="text-md font-bold text-gray-900 mb-2">Key Highlights</h2>
+                <ul class="text-xs text-gray-600 space-y-1.5 list-disc pl-4">
+                    <li>Smart inventory tracking (In Stock / Sold Out).</li>
+                    <li>Secure user dashboard controls.</li>
+                    <li>Instant category filtering.</li>
+                </ul>
+            </div>
+            <div class="pt-2 border-t border-gray-100 flex gap-2">
+                <a href="{% url 'items' %}" class="flex-1 text-center py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold text-xs rounded-lg transition">Browse</a>
+                <a href="{% url 'contact' %}" class="flex-1 text-center py-1.5 bg-green-600 hover:bg-green-700 text-white font-semibold text-xs rounded-lg transition">Support</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
