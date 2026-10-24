@@ -55,6 +55,7 @@
                         <div class="p-5 flex flex-col justify-between">
                             <div>
                                 <h3 class="text-lg font-bold text-gray-800 truncate mb-1">{{ item.name }}</h3>
+                                <p class="text-xs text-gray-500 truncate mb-1"><strong>Seller :</strong> {{ item.created_by.username }}</p>
                                 <p class="text-gray-600 font-semibold">₹{{ item.price }}</p>
                             </div>
                         </div>
