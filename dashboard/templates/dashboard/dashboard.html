@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 p-2">
-    <div class="p-6 bg-green-50 text-green-800 rounded-xl shadow-sm border border-green-200 flex justify-between items-center">
+    <div class="p-6 bg-green-150 text-green-800 rounded-xl shadow-xl border border-gray-600 flex justify-between items-center">
         <div>
             <h3 class="font-bold text-sm text-green-700 uppercase tracking-wider">In Stock Items</h3>
             <p class="text-3xl font-extrabold mt-1">{{ stock }}</p>
@@ -14,8 +14,7 @@
             View ↓
         </a>
     </div>
-    
-    <div class="p-6 bg-red-50 text-red-800 rounded-xl shadow-sm border border-red-200 flex justify-between items-center">
+    <div class="p-6 bg-red-150 text-red-800 rounded-xl shadow-xl border border-gray-600 flex justify-between items-center">
         <div>
             <h3 class="font-bold text-sm text-red-700 uppercase tracking-wider">Out of Stock Items</h3>
             <p class="text-3xl font-extrabold mt-1">{{ outofstock }}</p>
