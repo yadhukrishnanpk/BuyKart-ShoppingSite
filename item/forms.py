@@ -1,5 +1,5 @@
 from django import forms
-from .models import Item
+from .models import Item,Category
 
 class NewitemForm(forms.ModelForm):
     class Meta:
@@ -25,4 +25,13 @@ class EdititemForm(forms.ModelForm):
             'price': forms.NumberInput(attrs={'class': 'w-full p-2 border border-gray-300 rounded-xl', 'placeholder': '0.00'}),
             'image': forms.FileInput(attrs={'class': 'w-full p-2 border border-gray-300 rounded-xl'}),
             'is_sold': forms.CheckboxInput(attrs={'class': 'w-5 h-5 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2 cursor-pointer'})
+        }
+        
+        
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ('name',)
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'w-full p-2 border border-gray-300 rounded-xl', 'placeholder': 'Item name'}),
         }
