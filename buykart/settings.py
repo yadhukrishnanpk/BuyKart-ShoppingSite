@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dotenv
 from datetime import timedelta
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,12 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'cloudinary_storage',
+    'django.contrib.staticfiles',
+    'cloudinary',
     'API',
     'conversation',
     'core',
     'item',
     'dashboard',
-    
 ]
 
 MIDDLEWARE = [
@@ -85,10 +88,11 @@ WSGI_APPLICATION = 'buykart.wsgi.application'
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    "default": dj_database_url.config(
+        default=os.getenv("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
 
 
@@ -149,9 +153,9 @@ MAILERS = {
 }
 
 
-STATIC_ROOT = BASE_DIR/'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR/'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 LOGIN_URL ='/login/'
 LOGIN_REDIRECT_URL ='/'
@@ -161,4 +165,21 @@ LOGOUT_REDIRECT_URL ='/'
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1) 
+}
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+}
+
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "cloudinary_storage.storage.StaticHashedCloudinaryStorage",
+    },
 }
