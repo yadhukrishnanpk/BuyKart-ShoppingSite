@@ -21,11 +21,8 @@ def dashboard(request):
 
 def contact(request):
     return render(request, 'dashboard/contact.html')
-from django.shortcuts import render
-
 def about_view(request):
     return render(request, 'dashboard/about.html')
-
 def privacy_policy(request):
     return render(request, 'dashboard/privacy_policy.html')
 def termsandcondition(request):

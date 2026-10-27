@@ -6,7 +6,7 @@
 <div class="w-full px-4 py-6 bg-gray-100 min-h-[calc(100vh-140px)] flex flex-col justify-center">
     <div class="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col h-[80vh]">
         
-        <!-- Header -->
+
         <div class="p-4 bg-white border-b border-gray-200 flex justify-between items-center shrink-0">
             <div class="flex items-center gap-3">
                 <a href="{% url 'chatbox' %}" class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold rounded-lg transition">
@@ -21,7 +21,7 @@
                     </div>
                 {% endif %}
                 
-                <!-- Item Info -->
+
                 <div>
                     <h1 class="text-sm sm:text-base font-bold text-gray-900">{{ conversation.item.name }}</h1>
                     <p class="text-xs text-green-600 font-semibold">₹{{ conversation.item.price }}</p>
@@ -33,7 +33,7 @@
             </a>
         </div>
 
-        <!-- Messages History -->
+
         <div id="chat-container" class="flex-1 p-4 sm:p-6 overflow-y-auto space-y-4 bg-gray-50">
             {% for message in conversation.message.all %}
                 <div class="flex flex-col {% if message.created_by == request.user %}items-end{% else %}items-start{% endif %}">
@@ -42,9 +42,17 @@
                             {% if message.created_by == request.user %}You{% else %}{{ message.created_by.username }}{% endif %}
                         </div>
                         <p class="leading-relaxed whitespace-pre-line">{{ message.content }}</p>
-                        <div class="text-[9px] opacity-70 text-right mt-1.5">
-                           {% localtime on %}
-                                {{ conversation.item.created_at|date:"M j, Y, g:i A" }}
+                        <div class="text-[9px] opacity-100 text-right mt-1.5">
+                          {% localtime on %}
+                            <span class="text-xs text-gray-400">
+                                {% with last_msg=conversation.message.all.last %}
+                                    {% if last_msg %}
+                                        {{ last_msg.created_at|date:"M j, Y, g:i A" }}
+                                    {% else %}
+                                        {{ conversation.created_at|date:"M j, Y, g:i A" }}
+                                    {% endif %}
+                                {% endwith %}
+                            </span>
                         {% endlocaltime %}
                         </div>
                     </div>
@@ -56,7 +64,6 @@
             {% endfor %}
         </div>
 
-        <!-- Message Input Form -->
         <div class="p-4 bg-white border-t border-gray-200 shrink-0">
             <form method="post" action="." class="flex gap-3 items-end">
                 {% csrf_token %}

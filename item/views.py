@@ -9,8 +9,8 @@ from  django.db.models import Q
 def items(request):
     query = request.GET.get('query','')
     category_id =request.GET.get('category',0)
-    items = Item.objects.filter(is_sold=False)
-    categories = Category.objects.all
+    items = Item.objects.all()
+    categories = Category.objects.all()
     if category_id:
         items = items.filter(category_id=category_id)
     if query:

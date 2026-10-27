@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.messages import get_messages
 
 def index(request):
-    items = Item.objects.filter(is_sold=False)
+    items = Item.objects.all()
     Categories = Category.objects.all()
     context={
         'categories': Categories,
