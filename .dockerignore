@@ -1,0 +1,58 @@
+# --- Version Control ---
+.git
+.gitignore
+.gitattributes
+
+# --- Python Cache & Compiled Files ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.cache/
+
+# --- Virtual Environments ---
+.venv/
+venv/
+ENV/
+env/
+
+# --- Environment Variables & Secrets ---
+.env
+.env.*
+*.env
+
+# --- Django Specific Artifacts ---
+# Exclude local SQLite database if using one for dev
+*.db
+*.sqlite3
+*.sqlite3-journal
+
+# Exclude local media uploads (keep these out of the image)
+media/
+
+# Exclude collected static files if you generate them during the multi-stage build
+staticfiles/
+
+# --- IDEs and Text Editors ---
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+
+# --- Testing & CI/CD ---
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+
+# --- Docker Configuration ---
+# Prevents re-copying the Dockerfile or docker-compose setup into the container
+Dockerfile
+docker-compose*.yml
+.dockerignore
