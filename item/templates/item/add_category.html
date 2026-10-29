@@ -7,14 +7,14 @@
     <div class="w-full bg-white p-5 rounded-xl shadow-sm border border-gray-200">
         
        
-        <div class="mb-4 border-b border-gray-100 pb-3 flex justify-between items-center">
-            <div>
-                <h1 class="text-xl font-extrabold text-gray-900">{{ title }}</h1>
-                <p class="text-sm text-gray-500">Provide details below to publish your Category listing.</p>
-            </div>
-            <a href="{% url 'manage_categories' %}" class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold rounded-lg transition">
-                ✕ Close
-            </a>
+        <div class="mb-4 border-b border-gray-100 pb-3 flex justify-between items-start gap-4">
+    <div>
+        <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900 tracking-tight">{{ title }}</h1>
+        <p class="text-xs sm:text-sm text-gray-500 mt-1">Provide details below to publish your Category listing.</p>
+    </div>
+    <a href="{% url 'dashboard' %}" class="shrink-0 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold rounded-lg transition">
+        ✕ Close
+    </a>
         </div>
 
   
@@ -43,7 +43,7 @@
 
             <div class="pt-3 border-t border-gray-100 flex justify-end gap-3">
                 <button type="submit" class="px-6 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold text-xs rounded-lg shadow-sm transition">
-                    Submit Item
+                    Submit Category
                 </button>
             </div>
         </form>

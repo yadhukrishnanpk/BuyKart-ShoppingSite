@@ -33,5 +33,5 @@ class CategoryForm(forms.ModelForm):
         model = Category
         fields = ('name',)
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'w-full p-2 border border-gray-300 rounded-xl', 'placeholder': 'Item name'}),
+            'name': forms.TextInput(attrs={'class': 'w-full p-2 border border-gray-300 rounded-xl', 'placeholder': 'Category name'}),
         }
