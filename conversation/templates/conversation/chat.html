@@ -7,16 +7,17 @@
     <div class="w-full bg-white p-5 rounded-xl shadow-sm border border-gray-200">
         
   
-        <div class="mb-4 border-b border-gray-100 pb-3 flex justify-between items-center">
+       <div class="mb-4 border-b border-gray-100 pb-3 flex justify-between items-start gap-4">
             <div>
-                <h1 class="text-2xl font-extrabold text-gray-900">Start Conversation</h1>
-               <p class="text-sm text-gray-500">
-                Enter message to the Seller 
-                <strong class="text-gray-700">
-                    {% if item %}{{ item.created_by.username }}{% else %} Seller {% endif %}</strong> about <strong>{{ item.name }}</strong>
-            </p>
+                <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900 tracking-tight">Start Conversation</h1>
+                <p class="text-xs sm:text-sm text-gray-500 mt-1">
+                    Enter message to the Seller 
+                    <strong class="text-gray-700">
+                        {% if item %}{{ item.created_by.username }}{% else %} Seller {% endif %}
+                    </strong> about <strong>{{ item.name }}</strong>
+                </p>
             </div>
-            <a href="{% url 'detail' item.id %}" class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold rounded-lg transition">
+            <a href="{% url 'detail' item.id %}" class="shrink-0 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold rounded-lg transition">
                 ✕ Close
             </a>
         </div>

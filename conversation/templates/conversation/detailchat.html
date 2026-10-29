@@ -80,11 +80,35 @@
 </div>
 
 <script>
+    const chatContainer = document.getElementById("chat-container");
     window.addEventListener("DOMContentLoaded", () => {
-        const chatContainer = document.getElementById("chat-container");
         if (chatContainer) {
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
     });
+
+    setInterval(() => {
+        fetch(window.location.href)
+            .then(response => response.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const newChatContainer = doc.getElementById('chat-container');
+                
+                if (newChatContainer && chatContainer) {
+                  
+                    if (chatContainer.innerHTML !== newChatContainer.innerHTML) {
+                        const isAtBottom = chatContainer.scrollHeight - chatContainer.scrollTop <= chatContainer.clientHeight + 50;
+                        
+                        chatContainer.innerHTML = newChatContainer.innerHTML;
+                m
+                        if (isAtBottom) {
+                            chatContainer.scrollTop = chatContainer.scrollHeight;
+                        }
+                    }
+                }
+            })
+            .catch(error => console.error('Error refreshing chat:', error));
+    }, 1000);
 </script>
 {% endblock %}
