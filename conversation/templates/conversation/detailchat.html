@@ -81,12 +81,12 @@
 
 <script>
     const chatContainer = document.getElementById("chat-container");
-    window.addEventListener("DOMContentLoaded", () => {
+    function scrollToBottom() {
         if (chatContainer) {
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
-    });
-
+    }
+    window.addEventListener("DOMContentLoaded", scrollToBottom);
     setInterval(() => {
         fetch(window.location.href)
             .then(response => response.text())
@@ -96,14 +96,15 @@
                 const newChatContainer = doc.getElementById('chat-container');
                 
                 if (newChatContainer && chatContainer) {
-                  
                     if (chatContainer.innerHTML !== newChatContainer.innerHTML) {
-                        const isAtBottom = chatContainer.scrollHeight - chatContainer.scrollTop <= chatContainer.clientHeight + 50;
+
+                        const isNearBottom = (chatContainer.scrollHeight - chatContainer.scrollTop - chatContainer.clientHeight) < 100;
                         
+                   
                         chatContainer.innerHTML = newChatContainer.innerHTML;
-                m
-                        if (isAtBottom) {
-                            chatContainer.scrollTop = chatContainer.scrollHeight;
+                        
+                        if (isNearBottom) {
+                            scrollToBottom();
                         }
                     }
                 }
